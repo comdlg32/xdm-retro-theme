@@ -17,3 +17,7 @@ https://github.com/nestoris/Win98SE
 License for the code I made doesn't have any. Do whatever you want with it, however I am not responsible for any damages.  
 The icons in the corner image are GPLv2 (linked above).  
 I assume the code I forked from has no license either, since it didn't come with any.
+
+# Documented issues with fixes
+**I log in and it goes straight back to xdm. Why???**  
+Have you created a .xsession file in your home directory? Also make sure you do chmod 755 on Xstartup.
