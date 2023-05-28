@@ -9,3 +9,6 @@ xdm (of course), pkill, ImageMagick, Wine Tahoma font, xclock, xmessage, xsetroo
 
 # How does it look?
 ![image](xdm-login-new_035.png "Screenshot of the xdm theme")
+
+# What are the icons from at the corner image?
+https://github.com/nestoris/Win98SE
