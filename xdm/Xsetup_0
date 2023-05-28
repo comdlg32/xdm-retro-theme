@@ -1,0 +1,74 @@
+#!/bin/sh
+# Forked by WootyB
+# Designed by Toiletflusher
+# Template layouts from Vincent Delft, Zakaria and Roman Zolotarev in no particular order
+
+# Set the DPI to 96
+xrandr --output default --dpi 96
+
+# Set cursor to loading cursor
+xsetroot -cursor_name watch
+
+# Get screen resolution and the height of the screen resolution
+screenres="$(xwininfo -root | grep -- "-geometry" | cut -c 13- | rev | cut -c 5- | rev)"
+screenresheight="$(echo "$screenres" | grep -Eo '[0-9]+' | tail -1)"
+
+# Change the power menu position depending on resolution
+if [ "$screenresheight" -lt "641" ]; then
+	geometryxmsg="+128-25"
+else
+	geometryxmsg="+25-25"
+fi
+
+# Set wallpaper
+convert "/etc/X11/xdm/corner.xpm" -depth 8 -gravity NorthWest -background black -extent "$screenres" xpm:- | display -window root -depth 8
+
+# Change cursor back to normal pointer
+xsetroot -cursor_name left_ptr
+
+# Shows the power buttons and restarts xmessage after waking from sleep
+(
+while true; do
+  # Change the values "12" and "63" to make large and small horizontal adjustments respectively
+  # POS=$(( ( $WIDTH - 12*-63 ) / 2  ))  #text is 34 char, 12 is linked to the size of font select in Xresources
+  xmessage -name powerMenu -geometry $geometryxmsg         -buttons " Turn Off Computer ":22 ""
+  ACTION=$?
+  echo "Xmessage said: $ACTION"
+  if [ $ACTION -eq 22 ]; then
+      # Change the values "12" and "63" to make large and small horizontal adjustments respectively
+      xmessage -name powerMenu -geometry $geometryxmsg \
+      -buttons " Cancel ":23," Shut down ":22," Restart ":21," Stand by ":20 ""
+      ACTION=$?
+      if   [ $ACTION -eq 20 ]; then
+        pm-suspend
+      elif [ $ACTION -eq 21 ]; then
+        xsetroot -cursor_name watch
+        /sbin/reboot
+      elif [ $ACTION -eq 22 ]; then
+       xsetroot -cursor_name watch
+        /sbin/poweroff
+      else true
+      fi
+  else echo "Something bad happened to Xmessage.";
+  fi
+  # This stops xclock from looping in the event GiveConsole fails to do so
+  if [ -z "$(pgrep -U root xclock)" ]; then break; fi
+done
+) &
+
+# These elements are used to populate the top status bar
+#OS_NAME=$(uname -n)
+#OS_INFO=$(uname -smr)
+#KEYBD=$(setxkbmap -print | grep xkb_symbols | cut -d"+" -f2)
+#BATT=$(cat /sys/class/power_supply/BAT1/capacity)
+
+# The position/geometry can be changed as well as menu ordering
+#xclock -geometry +25-23       -strftime "Battery: $BATT%% | %a. %d %b. %Y %H:%M " &
+#xclock -geometry -25-23       -strftime "%a. %d %b. %Y %H:%M " &
+xclock -geometry 1x1-0-0       -update 9999999999999999 -strftime " " &
+#xclock -geometry +25-23       -strftime "%H:%M " &
+
+# Show welcome text
+xmessage -geometry -25-24 -name welcomeText -buttons "" "To manage or change user accounts...
+Open the terminal, and use commands like
+adduser, passwd, userdel, usermod and deluser." &

@@ -1,0 +1,78 @@
+# Forked from WootyB
+# Modified by Toiletflusher
+# Template layouts from Vincent Delft, Zakaria and Roman Zolotarev in no particular order
+
+# Displays asterisks if true, otherwise blank if false
+xlogin.Login.echoPasswd: true
+
+# Sets and aligns the login text; use spaces as needed
+#xlogin.Login.fail: Login incorrect or forbidden by policy
+xlogin.Login.fail: Wrong username or password!
+
+# Disable greet text
+xlogin.Login.greeting:
+
+# Set login prompt
+xlogin.Login.namePrompt:	Username:\040\040\040\040\040\040\040\040\040\040
+#xlogin.Login.passwdPrompt:     Password:\040
+
+# Adjusts the login box dimensions
+xlogin.Login.height:            350
+xlogin.Login.width:             555
+xlogin.Login.y:                 160
+xlogin.Login.x:			125
+xlogin.Login.frameWidth:        10
+xlogin.Login.innerFramesWidth:  0
+
+# Used to set colors of the login box
+xlogin.Login.background:        #000000
+xlogin.Login.foreground:        #FFFFFF
+xlogin.Login.failColor:         #b00035
+xlogin.Login.inpColor:          #000000
+xlogin.Login.promptColor:       #FFFFFF
+xlogin.Login.hiColor:           #000000
+xlogin.Login.shdColor:          #000000
+
+# Sets the font of each element; requires the wine tahoma and cronyx helvetica fonts!
+
+# XFT fonts
+xlogin*face:		Tahoma-8
+xlogin*failFace:	Tahoma-8
+xlogin*promptFace:	Tahoma-8
+xlogin*greetFace:	Arial-0
+
+# Non-XFT fonts
+xlogin*font:             -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+xlogin*failFont:             -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+xlogin*promptFont:             -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+xlogin*greetFont:             -*-*-*-*-*-*-2-20-*
+
+
+# Set xclock resources
+xclock*background:       #000000
+xclock*foreground:       #858385
+xclock*borderWidth:      0
+xclock*font:             -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+xclock.Clock.analog:     false
+xclock.Clock.chime:      false
+xclock.Clock.render:     false
+xclock.Clock.twentyfour: true
+xclock.Clock.update:     10
+
+# Set resources for the text on the corner
+welcomeText*font: -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+#welcomeText*message.font: -*-*-*-*-*-*-2-20-*
+welcomeText*foreground: #858385
+
+# Set resources for the power menu and xmessage in general
+Xmessage*background: #000000
+powerMenu*foreground: #eeeeee
+Xmessage*borderWidth: 0
+powerMenu*font: -cronyx-helvetica-medium-r-normal-*-11-80-100-100-p-46-iso10646-1
+powerMenu*message.font: -*-*-*-*-*-*-2-20-*
+Xmessage*message.scrollHorizontal: Never
+Xmessage*message.scrollVertical: Never
+Xmessage*timeout: 0
+Xmessage*form.*.shapeStyle: rectangle
+
+
