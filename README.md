@@ -21,3 +21,6 @@ I assume the code I forked from has no license either, since it didn't come with
 # Documented issues with fixes
 **I log in and it goes straight back to xdm. Why???**  
 Have you created a .xsession file in your home directory? Also make sure you do chmod 755 on Xstartup.
+
+# What resolutions are this theme tested on?
+640x480, 800x600, 1024x768, 1440x900, 1600x900, 1920x1080. It should Just Work™ on every resolution above 640x480.
