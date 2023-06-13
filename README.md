@@ -2,7 +2,7 @@
 Retro looking XDM theme
 
 # What is this based on?
-https://www.reddit.com/r/unixporn/comments/129fn1z/xenodm_openbsd_grayscale_login/
+https://www.reddit.com/r/unixporn/comments/129fn1z/xenodm_openbsd_grayscale_login/ <sub><sup>(dead link, will get replaced when full archive found)</sup></sub>
 
 # What does it require?
 xdm (of course), pkill, ImageMagick, Wine Tahoma font, xclock, xmessage, xsetroot
