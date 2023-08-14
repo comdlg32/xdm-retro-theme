@@ -2,7 +2,7 @@
 Retro looking XDM theme, used in Ice2K.sys.
 
 # What is this based on?
-https://www.reddit.com/r/unixporn/comments/129fn1z/xenodm_openbsd_grayscale_login/ <sub><sup>(dead link, will get replaced when full archive found)</sup></sub>
+https://www.reddit.com/r/unixporn/comments/129fn1z/xenodm_openbsd_grayscale_login/
 
 # What does it require?
 xdm (of course), pkill, ImageMagick, Wine Tahoma font, xclock, xmessage, xsetroot
