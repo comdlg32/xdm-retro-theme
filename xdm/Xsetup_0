@@ -21,7 +21,7 @@ else
 fi
 
 # Set wallpaper
-convert "/etc/X11/xdm/corner.xpm" -depth 8 -gravity NorthWest -background black -extent "$screenres" xpm:- | display -window root -depth 8
+convert "/etc/X11/xdm/corner.ppm" -depth 8 -gravity NorthWest -background black -compress lzw -colorspace sRGB -extent "$screenres" ppm:- | display -window root -depth 8
 
 # Change cursor back to normal pointer
 xsetroot -cursor_name left_ptr
